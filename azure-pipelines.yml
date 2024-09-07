@@ -20,6 +20,6 @@ steps:
 
 - task: PublishBuildArtifacts@1
   inputs:
-    pathtoPublish: '$(Build.SourceDirectory)/dist'
+    pathtoPublish: 'dist'
     artifactName: 'angular-app'
   displayName: 'Publish Build Artifacts'
