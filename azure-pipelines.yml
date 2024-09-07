@@ -9,14 +9,17 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '20.x'
-  displayName: 'Install Node.js'
+variables:
+  buildConfiguration: 'production'
 
+steps:
 - script: |
-    npm install -g @angular/cli
     npm install
-    ng build
-  displayName: 'npm install and build'
+    npm run build-prod
+  displayName: 'Build Angular App'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathtoPublish: '$(Build.SourceDirectory)/dist'
+    artifactName: 'angular-app'
+  displayName: 'Publish Build Artifacts'
