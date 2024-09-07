@@ -20,6 +20,6 @@ steps:
 
 - task: PublishBuildArtifacts@1
   inputs:
-    pathtoPublish: 'dist'
+    pathtoPublish: 'dist/book-store-ui'
     artifactName: 'angular-app'
   displayName: 'Publish Build Artifacts'
